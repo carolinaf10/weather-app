@@ -1,9 +1,22 @@
-function displayTemperature(response) {
+function displayWeather(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
-  cityElement.innerHTML = response.data.city;
+  let descriptionElement = document.querySelector("#current-date");
+  let windElement = document.querySelector(".current-details strong");
+  let temperatureIcon = document.querySelector(".current-temperature-icon");
+
+  let temperature = Math.round(response.data.temperature.current);
+  let city = response.data.city;
+  let description = response.data.condition.description;
+  let windSpeed = Math.round(response.data.wind.speed);
+
   temperatureElement.innerHTML = temperature;
+  cityElement.innerHTML = city;
+  descriptionElement.innerHTML = formatDate(new Date()) + ", " + description;
+  windElement.innerHTML = `${windSpeed} km/h`;
+
+  let iconCode = response.data.condition.icon;
+  temperatureIcon.innerHTML = `<img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconCode}.png" alt="${description}" />`;
 }
 
 function search(event) {
@@ -11,10 +24,15 @@ function search(event) {
   let searchInputElement = document.querySelector("#search-input");
   let city = searchInputElement.value;
 
-  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiKey = "484ae542b9ffa311f44109c1a4aoa2t3";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(displayTemperature);
+  axios
+    .get(apiUrl)
+    .then(displayWeather)
+    .catch(function (error) {
+      alert("City not found. Please try again!");
+    });
 }
 
 function formatDate(date) {
@@ -37,7 +55,7 @@ function formatDate(date) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let formattedDay = days[day];
@@ -47,7 +65,6 @@ function formatDate(date) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-let currentDateELement = document.querySelector("#current-date");
+let currentDateElement = document.querySelector("#current-date");
 let currentDate = new Date();
-
-currentDateELement.innerHTML = formatDate(currentDate);
+currentDateElement.innerHTML = formatDate(currentDate);
