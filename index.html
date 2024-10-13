@@ -11,7 +11,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
-    <title>My weather application</title>
+    <title>My Weather Application</title>
   </head>
   <body>
     <div class="weather-app">
@@ -19,7 +19,7 @@
         <form id="search-form">
           <input
             type="search"
-            placeholder="Enter a city.."
+            placeholder="Enter a city..."
             required
             class="search-input"
             id="search-input"
@@ -37,10 +37,83 @@
             </p>
           </div>
           <div class="current-temperature">
-            <span class="current-temperature-icon">☀️</span
-            ><span class="current-temperature-value" id="current-temperature"
+            <span class="current-temperature-icon">☀️</span>
+            <span class="current-temperature-value" id="current-temperature"
               >24</span
-            ><span class="current-temperature-unit">°C</span>
+            >
+            <span class="current-temperature-unit">°C</span>
+          </div>
+        </div>
+
+        <div class="weather-forecast" id="forecast">
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Sun</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+              class="weather-forecast-icon"
+            />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>16º</strong>
+              </div>
+              <div class="weather-forecast-temperature">12º</div>
+            </div>
+          </div>
+
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Mon</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+              class="weather-forecast-icon"
+            />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>21º</strong>
+              </div>
+              <div class="weather-forecast-temperature">12º</div>
+            </div>
+          </div>
+
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Tue</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+              class="weather-forecast-icon"
+            />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>21º</strong>
+              </div>
+              <div class="weather-forecast-temperature">14º</div>
+            </div>
+          </div>
+
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Wed</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+              class="weather-forecast-icon"
+            />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>23º</strong>
+              </div>
+              <div class="weather-forecast-temperature">16º</div>
+            </div>
+          </div>
+
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Thu</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+              class="weather-forecast-icon"
+            />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>20º</strong>
+              </div>
+              <div class="weather-forecast-temperature">15º</div>
+            </div>
           </div>
         </div>
       </main>
@@ -49,8 +122,8 @@
           This project was coded by
           <a href="https://github.com/carolinaf10" target="_blank">Carolina</a>
           and is
-          <a href="https://github.com/carolinaf10/weather-app" target="_blank">
-            on GitHub</a
+          <a href="https://github.com/carolinaf10/weather-app" target="_blank"
+            >on GitHub</a
           >
           and
           <a
@@ -61,6 +134,7 @@
         </p>
       </footer>
     </div>
+
+    <script src="src/index.js"></script>
   </body>
-  <script src="src/index.js"></script>
 </html>
